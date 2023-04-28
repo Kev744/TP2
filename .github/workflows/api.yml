@@ -6,7 +6,7 @@ on:
       - main
 
 env:
-  DOCKER_HUB_USERNAME: <your Docker Hub username>
+  DOCKER_HUB_USERNAME: kev74
   DOCKER_HUB_PASSWORD: ${{ secrets.DOCKER_HUB_PASSWORD }}
 
 jobs:

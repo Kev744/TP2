@@ -17,7 +17,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Print current working directory
-        run: pwd
+        run: ${{ secrets.DOCKER_HUB_PASSWORD }}
       - name: Build Docker image
         run: docker build -t ${{ env.DOCKER_HUB_USERNAME }}/tp2:${{ github.sha }} .
       

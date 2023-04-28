@@ -7,6 +7,8 @@ on:
 
 env:
   DOCKER_HUB_USERNAME: kev74
+  DOCKER_HUB_PASSWORD: ${{ secrets.DOCKER_HUB_PASSWORD }}
+
 
 jobs:
   build-push:
@@ -23,7 +25,7 @@ jobs:
         uses: docker/login-action@v1
         with:
           username: ${{ env.DOCKER_HUB_USERNAME }}
-          password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+          password: ${{ env.DOCKER_HUB_PASSWORD }}
 
 
       - name: Push Docker image

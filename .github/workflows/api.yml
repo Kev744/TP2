@@ -7,7 +7,7 @@ on:
 
 env:
   DOCKER_HUB_USERNAME: kev74
-  DOCKER_HUB_PASSWORD: ${{ secrets.DOCKER_HUB_PASSWORD }}
+  DOCKER_HUB_PASSWORD: Oleola74_
 
 jobs:
   build-push:

@@ -6,6 +6,10 @@ WORKDIR /app
 
 COPY requirement.txt /app
 
+RUN mkdir /templates
+
+COPY templates /app/templates
+
 RUN apk update && apk upgrade && pip install --no-cache-dir --requirement requirement.txt
 
 COPY apimeteo.py /app

@@ -4,6 +4,7 @@ Created on Fri Apr 28 11:52:48 2023
 
 @author: kevin
 """
+
 import requests
 import os
 from flask import Flask, request, render_template, flash, redirect
@@ -21,12 +22,16 @@ def home():
 
         if not lat:
             flash('Fill out the latitude')
-        elif not(lat.replace(".","",1).isdigit()) :
+        elif not(lat.replace(".","",1).replace("-", "", 1).isdigit()) :
             flash("Correct the field lat in correct format")
+        elif not(abs(float(lat)) <= 90.0):
+            flash("The latitude must be between -90° and 90°")
         elif not long:
             flash('Fill out the longitude')
-        elif not(long.replace(".","",1).isdigit()) :
+        elif not(long.replace(".","",1).replace("-", "", 1).isdigit()) :
             flash("Correct the field long in correct format")
+        elif not(abs(float(long)) <= 180.0):
+            flash("The longitude must be between -180° and 180°")
         else:
             return redirect(f'/weather?lat={lat}&long={long}') 
     return render_template("create.html")

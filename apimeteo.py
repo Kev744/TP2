@@ -4,7 +4,6 @@ Created on Fri Apr 28 11:52:48 2023
 
 @author: kevin
 """
-import json
 import requests
 import os
 from flask import Flask, request, render_template, flash, redirect

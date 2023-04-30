@@ -14,6 +14,11 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+      - name: Check Dockerfile syntax
+        uses: hadolint/hadolint-action@v3.1.0
+        with:
+          dockerfile: Dockerfile
       - name: Build Docker image
         run: docker build -t ${{ env.DOCKER_HUB_USERNAME }}/tp2:${{ github.sha }} .
       

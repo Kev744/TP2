@@ -4,3 +4,4 @@ You can find here :
 - py file of application
 - Dockerfile
 - Packages needed to be installed in your laptop
+- HTML form to request meteo with latitude and longitude

@@ -8,7 +8,7 @@ import json
 import requests 
 from flask import Flask, request, render_template, flash, redirect, url_for
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'kihg75'
+app.secret_key = 'df0331cefc6c2b9a5d0208a726a5d1c0fd37324feba25506'
 
 
 
@@ -21,8 +21,12 @@ def home():
 
         if not lat:
             flash('Fill out the latitude')
+        elif not(lat.replace(".","",1).isdigit()) :
+            flash("Correct the field lat in correct format")
         elif not long:
             flash('Fill out the longitude')
+        elif not(long.replace(".","",1).isdigit()) :
+            flash("Correct the field long in correct format")
         else:
             return redirect(f'/weather?lat={lat}&long={long}') 
     return render_template("create.html")

@@ -28,6 +28,3 @@ jobs:
 
       - name: Push Docker image
         run: docker push ${{ env.DOCKER_HUB_USERNAME }}/tp2:${{ github.sha }}
-
-      - name: Run Docker image
-        run: docker run --network host ${{ env.DOCKER_HUB_USERNAME }}/tp2:${{ github.sha }}

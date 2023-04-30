@@ -31,3 +31,7 @@ jobs:
 
       - name: Push Docker image
         run: docker push ${{ env.DOCKER_HUB_USERNAME }}/tp2:${{ github.sha }}
+        
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}

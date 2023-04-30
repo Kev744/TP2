@@ -5,8 +5,9 @@ Created on Fri Apr 28 11:52:48 2023
 @author: kevin
 """
 import json
-import requests 
-from flask import Flask, request, render_template, flash, redirect, url_for
+import requests
+import os
+from flask import Flask, request, render_template, flash, redirect
 app = Flask(__name__)
 app.secret_key = 'df0331cefc6c2b9a5d0208a726a5d1c0fd37324feba25506'
 
@@ -35,11 +36,13 @@ def home():
 def weather():
     lat = request.args.get('lat')
     long = request.args.get('long')
-    url = f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={long}&appid=30dba34f1ddfef698f3b3d3500666234&units=metric"
+    url = f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={long}&appid={api_key}&units=metric"
     response = requests.get(url)
     return response.json()
 
 
 
 if __name__ == "__main__":
+    api_key = os.environ["API_KEY"]
     app.run(host = '0.0.0.0')
+    

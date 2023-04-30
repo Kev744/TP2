@@ -35,4 +35,4 @@ jobs:
         
       - name: List files in the repository
         run: |
-              echo "${{ steps.hadolint.outputs.stdout }}"
+              echo "${{ steps.hadolint.outputs }}"

@@ -17,6 +17,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: Check Dockerfile syntax
         uses: hadolint/hadolint-action@v3.1.0
+        id: hadolint
         with:
           dockerfile: Dockerfile
       - name: Build Docker image
@@ -34,4 +35,4 @@ jobs:
         
       - name: List files in the repository
         run: |
-              echo "${{ outputs }}"
+              echo "${{ steps.hadolint.outputs.stdout }}"
